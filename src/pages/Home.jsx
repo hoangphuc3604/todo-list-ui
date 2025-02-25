@@ -18,12 +18,18 @@ const Home = () => {
     dispatch(fetchTasks());
   }, [dispatch]);
 
-  const handleAddTask = (task) => {
-    dispatch(createTask(task));
+  const handleAddTask = async (task) => {
+    const result = await dispatch(createTask(task));
+    if (createTask.fulfilled.match(result)) {
+      dispatch(fetchTasks());
+    }
   };
 
-  const handleToggleTask = (id, completed) => {
-    dispatch(toggleTaskStatus({ id, completed }));
+  const handleToggleTask = async (id, completed) => {
+    const result = await dispatch(toggleTaskStatus({ id, completed }));
+    if (toggleTaskStatus.fulfilled.match(result)) {
+      dispatch(fetchTasks());
+    }
   };
 
   const handleDeleteTask = (id) => {

@@ -6,7 +6,7 @@ export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
 });
 
 export const createTask = createAsyncThunk("tasks/createTask", async (task) => {
-  return await addTask(task);
+  await addTask(task);
 });
 
 export const removeTask = createAsyncThunk("tasks/removeTask", async (id) => {
@@ -31,9 +31,7 @@ const tasksSlice = createSlice({
       .addCase(fetchTasks.fulfilled, (state, action) => {
         state.tasks = action.payload;
       })
-      .addCase(createTask.fulfilled, (state, action) => {
-        state.tasks.push(action.payload);
-      })
+      .addCase(createTask.fulfilled, (state, action) => {})
       .addCase(removeTask.fulfilled, (state, action) => {
         state.tasks = state.tasks.filter((task) => task.id !== action.payload);
       })

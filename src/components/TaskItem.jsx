@@ -5,7 +5,7 @@ const TaskItem = ({ task, onDelete, onToggle }) => {
         <input
           type="checkbox"
           checked={task.completed}
-          onChange={() => onToggle(task.id)}
+          onChange={() => onToggle(task.id, task.completed)}
           className="cursor-pointer"
         />
         <div>

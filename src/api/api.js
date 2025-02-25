@@ -1,7 +1,5 @@
 import axios from "axios";
 
-console.log(process.env.REACT_APP_API_SERVER);
-
 export const getTasks = async () => {
   const response = await axios.get(process.env.REACT_APP_API_SERVER + "/tasks");
   return response.data;
