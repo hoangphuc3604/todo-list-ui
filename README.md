@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# To-Do List API & Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. Giới thiệu
 
-## Available Scripts
+Dự án này bao gồm một REST API được xây dựng bằng Golang với framework Gin, cùng với một frontend ReactJS để quản lý danh sách công việc (To-Do List). API hỗ trợ thêm, lấy, cập nhật và xóa công việc.
 
-In the project directory, you can run:
+## 2. Công nghệ sử dụng
 
-### `npm start`
+- **Backend**: Golang, Gin
+- **Frontend**: ReactJS, Axios
+- **Deployment**: Render
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3. Cài đặt và chạy dự án
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 3.1 Backend
 
-### `npm test`
+#### Yêu cầu
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Golang >= 1.18
+- Git
 
-### `npm run build`
+#### Cài đặt và chạy
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+# Clone repository
+git clone https://github.com/hoangphuc3604/todo-app-api
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Cài đặt dependency
+go mod tidy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Chạy server
+go run main.go
+```
 
-### `npm run eject`
+### 3.2 Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Yêu cầu
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Node.js >= 16
+- Git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Cài đặt và chạy
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```sh
+# Clone repository
+git clone https://github.com/hoangphuc3604/todo-list-ui
 
-## Learn More
+# Cài đặt dependency
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Chạy server
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 4. Triển khai
 
-### Code Splitting
+### 4.1 Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Deploy trên Render
 
-### Analyzing the Bundle Size
+1. Tạo tài khoản trên [Render](https://render.com/).
+2. Tạo dịch vụ mới, kết nối với GitHub repository.
+3. Cấu hình runtime là **Golang** và deploy backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 4.2 Frontend
 
-### Making a Progressive Web App
+#### Deploy trên Render
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Tạo dịch vụ mới trên Render, kết nối với GitHub repository.
+2. Cấu hình build command:
 
-### Advanced Configuration
+   ```sh
+    npm run build
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+3. Deploy frontend.
 
-### Deployment
+## 5. Ghi chú
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **CORS** đã được cấu hình để frontend có thể gọi API.
