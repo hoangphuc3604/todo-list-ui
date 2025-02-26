@@ -78,3 +78,10 @@ npm start
 ## 5. Ghi chú
 
 - **CORS** đã được cấu hình để frontend có thể gọi API.
+
+## 6. Các đường dẫn
+
+- Repository [Backend](https://github.com/hoangphuc3604/todo-app-api)
+- Repository [Frontend](https://github.com/hoangphuc3604/todo-list-ui)
+- Link deploy [Backend](https://todo-list-eczu.onrender.com)
+- Link deploy [Frontend](https://todo-list-ui-c5e6.onrender.com)
