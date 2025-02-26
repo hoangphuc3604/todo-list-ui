@@ -5,14 +5,16 @@ import {
   createTask,
   removeTask,
   toggleTaskStatus,
+  clearMessage,
 } from "../store/features/taskSlice";
 import Header from "../components/Header";
 import TaskInput from "../components/TaskInput";
 import TaskList from "../components/TaskList";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { tasks } = useSelector((state) => state.tasks);
+  const { tasks, error, loading } = useSelector((state) => state.tasks);
 
   useEffect(() => {
     dispatch(fetchTasks());
@@ -36,9 +38,22 @@ const Home = () => {
     dispatch(removeTask(id));
   };
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error.log);
+    }
+
+    dispatch(clearMessage());
+  }, [error]);
+
   return (
     <div className="max-w-md mx-auto mt-10 p-4 bg-gray-100 rounded-lg">
       <Header />
+      {loading && (
+        <div className="flex justify-center my-4">
+          <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
       <TaskInput addTask={handleAddTask} />
       <TaskList
         tasks={tasks}

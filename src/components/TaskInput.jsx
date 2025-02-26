@@ -17,17 +17,17 @@ const TaskInput = ({ addTask }) => {
         className="border p-2 w-full mb-2"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Nhập tiêu đề công việc..."
+        placeholder="Title of task..."
       />
       <textarea
         className="border p-2 w-full mb-2"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Nhập mô tả công việc..."
+        placeholder="Description of task..."
         rows="3"
       />
       <button className="bg-blue-500 text-white p-2 w-full" onClick={handleAdd}>
-        Thêm
+        Add
       </button>
     </div>
   );

@@ -20,7 +20,7 @@ const TaskItem = ({ task, onDelete, onToggle }) => {
         </div>
       </div>
       <button className="text-red-500" onClick={() => onDelete(task.id)}>
-        Xóa
+        Delete
       </button>
     </li>
   );
